@@ -1,16 +1,15 @@
 import { useState } from "react"
 
 
-const Login = () => {
+const Login = ({handleLogin}) => {
+  
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log("email is", email)
-    console.log("password is", password)
-
+    handleLogin(email, password)
     setEmail("")
     setPassword("")
   }
@@ -18,7 +17,7 @@ const Login = () => {
 
   return (
     <div className='flex h-screen w-screen items-center justify-center'>
-      <div className=' border-2 border-red-600 p-20'>
+      <div className=' border-2 rounded-xl border-red-600 p-20'>
         <form
           onSubmit={(e) => {
             submitHandler(e)
